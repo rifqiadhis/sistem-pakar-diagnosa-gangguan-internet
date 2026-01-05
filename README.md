@@ -8,7 +8,7 @@
 
 <p align="center">
   <strong>Tugas Akhir Mata Kuliah Expert System</strong><br>
-  Program Studi Teknik Informatika
+  Program Studi Sistem Informasi
 </p>
 
 ---
