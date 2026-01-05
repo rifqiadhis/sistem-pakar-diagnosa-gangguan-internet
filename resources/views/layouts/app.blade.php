@@ -24,7 +24,7 @@
     </main>
 
     <footer class="text-center py-6 text-slate-500 text-sm">
-        &copy; 2024 Tugas Mata Kuliah Expert System - Certainty Factor Method
+        &copy; 2025 Tugas Mata Kuliah Expert System - Certainty Factor Method
     </footer>
 </body>
 
