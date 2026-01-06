@@ -7,6 +7,9 @@
             <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Management Basis Pengetahuan</h1>
             <p class="text-sm text-slate-500 mt-1">Kelola relasi antara gejala, gangguan, dan bobot Certainty Factor (CF).</p>
         </div>
+        <a href="{{ route('basis.riwayat') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+            Riwayat Diagnosa
+        </a>
     </div>
 
     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">

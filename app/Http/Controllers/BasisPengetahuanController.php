@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BasisPengetahuan;
 use App\Models\Gangguan;
 use App\Models\Gejala;
+use App\Models\RiwayatDiagnosa;
 use Illuminate\Http\Request;
 
 class BasisPengetahuanController extends Controller
@@ -75,5 +76,11 @@ class BasisPengetahuanController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function riwayat()
+    {
+        $riwayat = RiwayatDiagnosa::latest()->get();
+        return view('admin.basis.riwayat', compact('riwayat'));
     }
 }

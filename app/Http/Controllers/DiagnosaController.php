@@ -61,6 +61,14 @@ class DiagnosaController extends Controller
             ];
         }
 
+        if (count($hasil) > 0) {
+            \App\Models\RiwayatDiagnosa::create([
+                'hasil_gangguan' => $hasil[0]['nama'],
+                'skor_persen' => $hasil[0]['skor'],
+                'data_gejala' => $inputUserTerpilih
+            ]);
+        }
+
         return view('hasil', compact('hasil', 'inputUserTerpilih'));
     }
 }

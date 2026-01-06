@@ -16,6 +16,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('basis/riwayat', [BasisPengetahuanController::class, 'riwayat'])->name('basis.riwayat')->middleware('auth');
 Route::resource('basis', BasisPengetahuanController::class)->parameters(['basis' => 'basis'])->middleware('auth');
 
 Route::middleware('auth')->group(function () {
