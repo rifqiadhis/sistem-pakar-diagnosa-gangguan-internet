@@ -47,6 +47,20 @@ class DiagnosaController extends Controller
         }
 
         usort($hasil, fn($a, $b) => $b['skor'] <=> $a['skor']);
-        return view('hasil', compact('hasil'));
+
+        // Ambil data gejala yang dipilih user untuk ditampilkan kembali
+        $inputUserTerpilih = [];
+        foreach ($inputGejala as $id => $val) {
+            $gejala = Gejala::find($id);
+            $inputUserTerpilih[] = [
+                'nama' => $gejala->nama,
+                'kode' => $gejala->kode,
+                'nilaicf' => $val,
+                // Label untuk tampilan
+                'label' => $val == 1 ? 'Sangat Yakin' : ($val == 0.6 ? 'Yakin' : ($val == 0.4 ? 'Ragu-ragu' : 'Kurang Yakin'))
+            ];
+        }
+
+        return view('hasil', compact('hasil', 'inputUserTerpilih'));
     }
 }

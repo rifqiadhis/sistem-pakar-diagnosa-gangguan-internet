@@ -11,6 +11,8 @@
 /.phpunit.cache
 /.vscode
 /.zed
+/.docker
+docker
 /auth.json
 /node_modules
 /public/build

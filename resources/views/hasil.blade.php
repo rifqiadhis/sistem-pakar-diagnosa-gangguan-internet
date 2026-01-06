@@ -29,11 +29,41 @@
 
             <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
                 <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-2">
-                    <i class="fas fa-info-circle text-indigo-500"></i> Definisi & Solusi
+                    <i class="fas fa-info-circle text-indigo-500"></i> Definisi Masalah
                 </h3>
                 <p class="text-slate-600 leading-relaxed italic">
                     "{{ $hasil[0]['definisi'] }}"
                 </p>
+            </div>
+        </div>
+    </div>
+
+    <div x-data="{ open: false }" class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-6">
+        <button @click="open = !open" class="w-full p-4 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-500">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <span class="font-bold text-slate-700 text-sm">Lihat Gejala yang Anda Pilih</span>
+                <span class="bg-indigo-100 text-indigo-600 px-2 py-0.5 rounded-md text-[10px] font-bold">{{ count($inputUserTerpilih) }} Gejala</span>
+            </div>
+            <i class="fas fa-chevron-down text-slate-400 transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+
+        <div x-show="open" x-collapse x-cloak class="border-t border-slate-100 p-4 bg-slate-50/50">
+            <div class="grid gap-2">
+                @foreach($inputUserTerpilih as $item)
+                <div class="flex items-center justify-between bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-bold text-indigo-500">{{ $item['kode'] }}</span>
+                        <span class="text-sm text-slate-700 font-medium">{{ $item['nama'] }}</span>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-1 rounded-md
+                        {{ $item['nilaicf'] == 1 ? 'bg-indigo-600 text-white' : 'bg-slate-200 text-slate-600' }}">
+                        {{ $item['label'] }}
+                    </span>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

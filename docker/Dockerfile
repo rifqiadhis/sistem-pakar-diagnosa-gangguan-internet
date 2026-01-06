@@ -31,7 +31,7 @@ RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache || true
 COPY .docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # expose typical ports (artisan & vite)
-EXPOSE 9000 5173
+EXPOSE 9001 5174
 
 # entrypoint: supervisord will start both processes
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

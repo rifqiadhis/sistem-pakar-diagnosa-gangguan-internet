@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Pakar - Diagnosa Internet</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-slate-50 font-sans text-slate-900">
     <nav class="bg-indigo-600 p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/diagnosa" class="text-white text-xl font-bold flex items-center gap-2">
+            <a href="/" class="text-white text-xl font-bold flex items-center gap-2">
                 <i class="fas fa-network-wired"></i> SiPakTernet
             </a>
+            @if(auth()->check())
+            <form method="POST" action="{{ route('logout') }}" class="inline">
+                @csrf
+                <button type="submit" class="text-indigo-100 text-sm hover:text-white transition">Logout</button>
+            </form>
+            @else
             <span class="text-indigo-100 text-sm italic">Sistem Pakar Diagnosa Gangguan Internet</span>
+            @endif
         </div>
     </nav>
 
